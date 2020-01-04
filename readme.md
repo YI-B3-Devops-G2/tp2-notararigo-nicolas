@@ -1,14 +1,32 @@
-# B3 Devops - TP 2
+[![CircleCI](https://circleci.com/gh/Neerfix/tp2-Notararigo-nicolas/tree/master.svg?style=svg)](https://circleci.com/gh/Neerfix/tp2-Notararigo-nicolas/tree/master)
+
+# B3 Devops - Projet 1
 
 ## Info
+Team 11
+---
+mail: Zakarya.tolba@ynov.com
+github_username: zaktolba
+---
+mail: nicolas.laroche@ynov.com
+github_username: laroche-nicolas
+---
 mail: nicolas.notararigo@ynov.com
 github_username: Neerfix
+
+### DockerHub
+link: https://hub.docker.com/repository/docker/neerfix/tp2-team-11
+
+### DockerHub
+Basé sur le projet : https://github.com/YI-B3-Devops/tp2-notararigo-nicolas
 
 ### Les fichiers du repo
 
 - Readme (ce fichier)
 - [ChangeLog](./changelog.md) - _Changements effectués au long des releases_ 
 - [package.json](./package.json) - Fichier de NPM.
+- .cicleci
+    - [config.yml](./.circleci/config.yml) - Fichier de configuration de circleci
 - [docker](./docker/) - Contient les containers docker.
     - [docker-compose](./docker/docker-compose.yml) - docker compose du projet.
         - [api](./docker/api/Dockerfile) - Dockerfile de NodeJs.
