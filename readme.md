@@ -1,8 +1,9 @@
-[![CircleCI](https://circleci.com/gh/Neerfix/tp2-Notararigo-nicolas/tree/master.svg?style=svg)](https://circleci.com/gh/Neerfix/tp2-Notararigo-nicolas/tree/master)
+[![CircleCI](https://circleci.com/gh/YI-B3-Devops/tp2-team-11/tree/master.svg?style=svg)](https://circleci.com/gh/YI-B3-Devops/tp2-team-11/tree/master)
 
 # B3 Devops - Projet 1
 
 ## Info
+
 Team 11
 ---
 mail: Zakarya.tolba@ynov.com
@@ -13,6 +14,7 @@ github_username: laroche-nicolas
 ---
 mail: nicolas.notararigo@ynov.com
 github_username: Neerfix
+---
 
 ### DockerHub
 link: https://hub.docker.com/repository/docker/neerfix/tp2-team-11
