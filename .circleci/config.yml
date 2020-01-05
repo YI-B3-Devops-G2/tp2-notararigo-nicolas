@@ -5,11 +5,15 @@ executors:
     docker:
       - image: circleci/node:10
 jobs:
-  build:
+  build_image:
     executor: my-publisher
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build Docker Image
+          name: Build image docker
           command: docker build -t larnico\nodejs-api_team11:latest docker/api/
+      - run:
+          name: Archive image docker
+          command: docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
+  
