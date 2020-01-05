@@ -1,20 +1,29 @@
 [![CircleCI](https://circleci.com/gh/YI-B3-Devops/tp2-team-11/tree/master.svg?style=svg)](https://circleci.com/gh/YI-B3-Devops/tp2-team-11/tree/master)
 
 # B3 Devops - Projet 1
+- [Info](#info)
+- [Team 11](#team-11)
+  * [DockerHub](#dockerhub)
+  * [DockerHub](#dockerhub-1)
+  * [Les fichiers du repo](#les-fichiers-du-repo)
+  * [Pré-requis](#pré-requis)
+- [Installation](#installation)
+- [Utilisation de l'API](#utilisation)
+- [Fermer le projet](#fermer-le-projet)
 
 ## Info
 
-Team 11
----
-mail: Zakarya.tolba@ynov.com
-github_username: zaktolba
----
-mail: nicolas.laroche@ynov.com
-github_username: laroche-nicolas
----
-mail: nicolas.notararigo@ynov.com
-github_username: Neerfix
----
+### Team 11
+
+* mail: zakarya.tolba@ynov.com  <br>
+github_username: zaktolba <br>
+
+* mail: nicolas.laroche@ynov.com<br>
+github_username: laroche-nicolas<br>
+
+* mail: nicolas.notararigo@ynov.com<br>
+github_username: Neerfix<br>
+
 
 ### DockerHub
 link: https://hub.docker.com/repository/docker/neerfix/tp2-team-11
@@ -35,11 +44,16 @@ Basé sur le projet : https://github.com/YI-B3-Devops/tp2-notararigo-nicolas
         - [nginx](./docker/nginx/Dockerfile) - Dockerfile de Nginx.
             - [nginx.conf](./docker/nginx/nginx.conf) - configuration de Nginx.   
 
+### Pré-requis
+* Docker
+* Node.js
+
 ## Installation
 
 1) Clôner le repo dans votre espace. 
 2) Se rendre dans le dossier avec son terminal.
-3) Lancer la commande suivante pour se rendre dans le dossier de docker et lancer le projet : 
+3) Lancer ```npm install``` afin d'installer les modules de Node
+4) Lancer la commande suivante pour se rendre dans le dossier de docker et lancer le projet : 
 ```bash 
 cd docker && docker-compose up
 ```
@@ -47,8 +61,7 @@ cd docker && docker-compose up
 Vous pouvez vous rendre sur le serveur via 
 [localhost:8080](http://localhost:8080)
 
-## L'API
-
+## Utilisation
 - GET /
 
 ```
@@ -61,4 +74,11 @@ Welcome on Nginx
 - GET /status
 ```
 {"status": "OK", "postgresUptime": String, "redisConnectedClients": Number}
+```
+
+## Fermer le projet 
+1) Se rendre dans le dossier avec son terminal
+2) Lancer la commande suivante pour se rendre dans le dossier de docker et arrêter le projet : 
+```bash 
+cd docker && docker-compose down
 ```
