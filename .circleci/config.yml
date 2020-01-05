@@ -1,12 +1,15 @@
-version: 2
-jobs:
-  build:
+version: 2.1
+executors:
+  my-publisher:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:10
-    working_directory: ~/repo
+jobs:
+  build:
+    executor: my-publisher
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Install node-modules
-          command: npm install
+          name: Build Docker Image
+          command: docker build -t larnico\nodejs-api_team11:latest docker/api/
