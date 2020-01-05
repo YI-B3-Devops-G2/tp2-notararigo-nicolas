@@ -1,12 +1,12 @@
 version: 2.1
 executors:
-  my-publisher:
+  mypublisher:
 #    working_directory: ~/repo
     docker:
       - image: circleci/node:10
 jobs:
   build_image:
-    executor: my-publisher
+    executor: mypublisher
     steps:
       - checkout
       - setup_remote_docker
@@ -17,11 +17,11 @@ jobs:
           name: Archive image docker
           command: docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
   publish_image:
-    executor: my-publisher
+    executor: mypublisher
     steps:
       - setup_remote_docker
       - run:
-        name: Recuperation docker.tar
+        name: Recuperation archive docker
         command: docker load -i sauv_image_docker.tar
       - run:
           name: Publication sur Docker Hub
