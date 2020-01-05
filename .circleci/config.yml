@@ -16,4 +16,11 @@ jobs:
       - run:
           name: Archive image docker
           command: docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
-  
+  publish_image:
+    executor: my_publisher
+    steps:
+      - setup_remote_docker
+          - run:
+          name: Recuperation docker.tar
+          command: docker load -i sauv_image_docker.tar
+
