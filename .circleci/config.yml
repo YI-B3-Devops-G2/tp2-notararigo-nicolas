@@ -20,7 +20,13 @@ jobs:
     executor: my_publisher
     steps:
       - setup_remote_docker
-          - run:
-          name: Recuperation docker.tar
-          command: docker load -i sauv_image_docker.tar
+      - run:
+        name: Recuperation docker.tar
+        command: docker load -i sauv_image_docker.tar
+      - run:
+          name: Publication sur Docker Hub
+          command:
+            docker login -u "larnico" -p
+            docker push larnico\nodejs-api_team11:latest
+
 
