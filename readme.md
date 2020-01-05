@@ -3,8 +3,6 @@
 # B3 Devops - Projet 1
 - [Info](#info)
 - [Team 11](#team-11)
-  * [DockerHub](#dockerhub)
-  * [DockerHub](#dockerhub-1)
   * [Les fichiers du repo](#les-fichiers-du-repo)
   * [Pré-requis](#pré-requis)
 - [Installation](#installation)
