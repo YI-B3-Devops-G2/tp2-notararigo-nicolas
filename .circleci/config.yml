@@ -1,35 +1,32 @@
 version: 2.1
 executors:
-  my-publisher:
-#    working_directory: ~/repo
+  mypublisher:
+    #    working_directory: ~/repo
     docker:
       - image: circleci/node:10
 jobs:
   build_image:
-    executor: my-publisher
+    executor: mypublisher
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: Build image docker
-          command: |
-            docker build -t larnico\nodejs-api_team11:latest docker/api/
+          command: docker build -t larnico\nodejs-api_team11:latest docker/api/
       - run:
           name: Archive image docker
-          command: |
-            docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
+          command: docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
   publish_image:
-    executor: my-publisher
+    executor: mypublisher
     steps:
       - setup_remote_docker
       - run:
-        name: Recuperation docker.tar
-        command: |
-          docker load -i sauv_image_docker.tar
+          name: Recuperation archive docker
+          command: docker load -i sauv_image_docker.tar
       - run:
           name: Publication sur Docker Hub
-          command: |
-            docker login -u "larnico" --password-stdin
+          command:
+            docker login -u "larnico" -p
             docker push larnico\nodejs-api_team11:latest
 workflows:
   version: 2
@@ -39,7 +36,7 @@ workflows:
           filters:
             branches:
               only: master
-      - publish-latest:
+      - publish_image:
           requires:
             - build_image
           filters:
