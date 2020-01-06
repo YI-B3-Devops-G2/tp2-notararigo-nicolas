@@ -12,10 +12,11 @@ services:
       - "network-nodejs"
     ports:
       - "8080:80"
-
   redis:
     image: "redis:alpine"
-
+    container_name: devops_tp_pipeline
+    networks:
+      - network-db
   postgres:
     image: "postgres"
     container_name: "postgres"

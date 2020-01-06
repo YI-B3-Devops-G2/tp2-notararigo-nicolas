@@ -2,7 +2,10 @@
 
 const express = require('express');
 const { Client } = require('pg');
-const redis = require('redis')
+const redis = require('redis');
+
+const redisClient = redis.createClient({host: 'devops_tp_pipeline'});
+
 
 // Constants
 const PORT = 8080;
@@ -17,7 +20,7 @@ const pg = new Client({
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send("Welcome on Nginx");
+  res.send({ "message": "Hello World !" });
 
 });
 app.get('/api', (req, res) => {
@@ -45,4 +48,4 @@ app.get('/status', async (req, res) => {
 });
 pg.connect();
 app.listen(PORT);
-console.log('le serveur est lancer au port'+ PORT);
+console.log('le serveur automatisé est lancer au port : '+ PORT);
