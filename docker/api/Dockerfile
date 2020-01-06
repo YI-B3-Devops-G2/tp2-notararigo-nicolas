@@ -1,18 +1,18 @@
+#import depuis Docker hub
 FROM node:10
 
-# Create app directory
-WORKDIR /home/api
-RUN chown -R node:node /home/api
+#Création du repertoire de l'application
+WORKDIR /home/nodejs/app
+RUN chown -R node:node /home/nodejs/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY ../../package*.json ./
+#Permet l'installation des librairies listés au sein du fichier composer.json
+COPY package*.json ./
 RUN npm install
 COPY . .
 
-# If you are building your code for production
-# RUN npm ci --only=production
-
+#Permet d'exposer le port pour Doker
 EXPOSE 8080
-CMD [ "npm", "start" ]
+
+#execute le lancement du serveur node
+CMD ["npm","start"]
+
