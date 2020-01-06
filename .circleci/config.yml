@@ -12,21 +12,24 @@ jobs:
       - setup_remote_docker
       - run:
           name: Build image docker
-          command: docker build -t larnico\nodejs-api_team11:latest docker/api/
+          command: |
+            docker build -t larnico\nodejs-api_team11:latest docker/api/
       - run:
           name: Archive image docker
-          command: docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
+          command: |
+            docker save -o sauv_image_docker.tar larnico\nodejs-api_team11
   publish_image:
     executor: my-publisher
     steps:
       - setup_remote_docker
       - run:
         name: Recuperation docker.tar
-        command: docker load -i sauv_image_docker.tar
+        command: |
+          docker load -i sauv_image_docker.tar
       - run:
           name: Publication sur Docker Hub
-          command:
-            docker login -u "larnico" -p
+          command: |
+            docker login -u "larnico" --password-stdin
             docker push larnico\nodejs-api_team11:latest
 workflows:
   version: 2
